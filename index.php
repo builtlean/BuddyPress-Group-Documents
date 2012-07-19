@@ -46,8 +46,6 @@ function bp_group_documents_set_constants() {
 }
 add_action('plugins_loaded','bp_group_documents_set_constants');
 
-setlocale( LC_TIME, get_locale() );
-
 //load i18n files if present
 if ( file_exists( dirname( __FILE__ ) . '/languages/' . get_locale() . '.mo' ) ) {
 	load_textdomain( 'bp-group-documents', dirname( __FILE__ ) . '/languages/' . get_locale() . '.mo' );
