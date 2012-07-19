@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/buddypress-group-documents\n"
 "POT-Creation-Date: 2010-04-11 01:46+0000\n"
-"PO-Revision-Date: 2012-07-19 17:59+0100\n"
+"PO-Revision-Date: 2012-07-19 18:10+0100\n"
 "Last-Translator: Sven Wagener <svenw@themekraft.com>\n"
 "Language-Team: Michael Berra <michael.berra@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -290,7 +290,7 @@ msgstr "Die meist heruntergeladenen Gruppendokumente"
 #: include/widgets.php:112
 #: include/widgets.php:119
 msgid "Popular Group Documents"
-msgstr "Populäre Gruppen-Dokumente"
+msgstr "Beliebte Gruppen-Dokumente"
 
 #: index.php:164
 #: index.php:316
@@ -326,7 +326,7 @@ msgstr "Sortieren:"
 
 #: index.php:359
 msgid "Newest"
-msgstr "Neueste"
+msgstr "Datum"
 
 #: index.php:360
 msgid "Alphabetical"
@@ -334,7 +334,7 @@ msgstr "Alphabetisch"
 
 #: index.php:361
 msgid "Most Popular"
-msgstr "Populärste"
+msgstr "Beliebtheit"
 
 #: index.php:403
 #, php-format
