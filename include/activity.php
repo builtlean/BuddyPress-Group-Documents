@@ -8,7 +8,10 @@
 function bp_group_documents_record_add( $document ) {
 	global $bp;
 
-	$params = array('action'=>sprintf( __ ('%s uploaded the file: %s to %s','bp-group-documents'),bp_core_get_userlink($bp->loggedin_user->id),'<a href="' . $document->get_url() . '">' . esc_attr( $document->name ) . '</a>','<a href="' . bp_get_group_permalink( $bp->groups->current_group ) . '">' . esc_attr( $bp->groups->current_group->name ) . '</a>'),
+	$href_document = apply_filters( 'group_documents_activity_document_url', '<a href="' . $document->get_url() . '">' . esc_attr( $document->name ) . '</a>',  $document->get_url(), esc_attr( $document->name ) );
+	$href_group =  apply_filters( 'group_documents_activity_group_url', '<a href="' . bp_get_group_permalink( $bp->groups->current_group ) . '">' . esc_attr( $bp->groups->current_group->name ) . '</a>',   bp_get_group_permalink( $bp->groups->current_group ), esc_attr( $bp->groups->current_group->name ) );
+	
+	$params = array('action'=>sprintf( __ ('%s uploaded the file: %s to %s','bp-group-documents'), bp_core_get_userlink($bp->loggedin_user->id), $href_document, $href_group ),
 					'content'=>$document->description,
 					'component_action'=>'added_group_document',
 					'secondary_item_id'=>$document->id);
@@ -27,8 +30,11 @@ add_action('bp_group_documents_add_success','bp_group_documents_record_add',15,1
  */
 function bp_group_documents_record_edit( $document ) {
 	global $bp;
-
-	$params = array('action'=>sprintf( __ ('%s edited the file: %s in %s','bp-group-documents'),bp_core_get_userlink($bp->loggedin_user->id),'<a href="' . $document->get_url() . '">' . esc_attr( $document->name ) . '</a>','<a href="' . bp_get_group_permalink( $bp->groups->current_group ) . '">' . esc_attr( $bp->groups->current_group->name ) . '</a>'),
+	
+	$href_document = apply_filters( 'group_documents_activity_document_url', '<a href="' . $document->get_url() . '">' . esc_attr( $document->name ) . '</a>',  $document->get_url(), esc_attr( $document->name ) );
+	$href_group =  apply_filters( 'group_documents_activity_group_url', '<a href="' . bp_get_group_permalink( $bp->groups->current_group ) . '">' . esc_attr( $bp->groups->current_group->name ) . '</a>',   bp_get_group_permalink( $bp->groups->current_group ), esc_attr( $bp->groups->current_group->name ) );
+	
+	$params = array('action'=>sprintf( __ ('%s edited the file: %s in %s','bp-group-documents'),bp_core_get_userlink($bp->loggedin_user->id), $href_document, $href_group ),
 					'component_action'=>'edited_group_document',
 					'secondary_item_id'=>$document->id);
 	bp_group_documents_record_activity($params);
